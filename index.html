@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accent — Choice Is Yours | AI Career & Sales Training Platform</title>
+    <title>Accent AI | Career, Sales & Call Coaching</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
@@ -13,6 +13,11 @@
             --emerald-light: #10B981;
         }
         body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .glass {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(14px);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
@@ -33,6 +38,7 @@
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
                 <a href="#features" class="hover:text-emerald-600 transition">Products</a>
                 <a href="#about" class="hover:text-emerald-600 transition">About</a>
+                <a href="#stories" class="hover:text-emerald-600 transition">Results</a>
                 <button onclick="switchView('dashboard')" class="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-xl font-semibold hover:bg-emerald-100 transition">Launch Portal 🚀</button>
             </nav>
 
@@ -48,83 +54,133 @@
     <!-- MAIN CONTENT AREA -->
     <main class="flex-1">
 
-        <!-- VIEW 1: LANDING PAGE (Default Desktop & Mobile First Impression) -->
+        <!-- VIEW 1: LANDING PAGE -->
         <div id="view-landing" class="space-y-20 pb-20">
-            
+
             <!-- Hero Section -->
             <section class="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32 bg-gradient-to-b from-emerald-900 via-emerald-800 to-slate-900 text-white">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <span class="inline-flex items-center space-x-2 bg-emerald-800/80 border border-emerald-600/50 text-emerald-200 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 shadow-inner">
-                        <span>🌱</span> <span>Next-Gen AI Careers & Sales Ecosystem</span>
-                    </span>
-                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight max-w-4xl mx-auto leading-tight">
-                        Master Sales. Ace Interviews. <span class="text-emerald-400">Grow Your Career.</span>
-                    </h1>
-                    <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
-                        Accent brings you world-class AI sales masterclasses, multilingual mock interviews, and automated call coaching tools. Your career trajectory is in your hands.
-                    </p>
-                    <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-                        <button onclick="openAuthModal()" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-lg transition text-base">
-                            Get Started Free 🚀
-                        </button>
-                        <a href="#features" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-2xl border border-white/20 transition text-base">
-                            Explore Products ↓
-                        </a>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.35),_transparent_40%)]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
+                        <div class="text-center lg:text-left">
+                            <span class="inline-flex items-center space-x-2 bg-emerald-800/80 border border-emerald-600/50 text-emerald-200 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 shadow-inner">
+                                <span>🌱</span> <span>AI Career & Sales Growth Platform</span>
+                            </span>
+                            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] max-w-4xl lg:max-w-2xl">
+                                Elevate your sales and career confidence.
+                            </h1>
+                            <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-xl font-normal leading-relaxed">
+                                Accent uses AI coaching, structured sales training, mock interviews, and call analysis to help you learn faster, speak better, and win more opportunities.
+                            </p>
+                            <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
+                                <button onclick="openAuthModal()" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-lg transition text-base">
+                                    Get Started Free 🚀
+                                </button>
+                                <a href="#features" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-2xl border border-white/20 transition text-base">
+                                    Explore Products ↓
+                                </a>
+                            </div>
+                            <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-slate-300">
+                                <span>4.9★ learner rating</span>
+                                <span>50k+ AI practice sessions</span>
+                                <span>Built for real-world growth</span>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <div class="glass rounded-[2rem] p-5 shadow-2xl border border-white/10">
+                                <div class="bg-white rounded-[1.5rem] text-slate-900 p-5 shadow-xl">
+                                    <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+                                        <div>
+                                            <p class="text-xs uppercase tracking-[0.22em] text-slate-500">Live Coaching</p>
+                                            <h3 class="text-xl font-black mt-1">Sales Growth Dashboard</h3>
+                                        </div>
+                                        <div class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">Online</div>
+                                    </div>
+                                    <div class="mt-5 space-y-4">
+                                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                                            <div class="flex items-center justify-between text-sm text-slate-600">
+                                                <span>Interview readiness</span>
+                                                <span class="font-bold text-emerald-700">82%</span>
+                                            </div>
+                                            <div class="mt-2 h-2 bg-slate-200 rounded-full overflow-hidden">
+                                                <div class="h-full w-[82%] bg-emerald-500 rounded-full"></div>
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-3">
+                                            <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100">
+                                                <p class="text-xs uppercase tracking-wider text-emerald-700">Calls reviewed</p>
+                                                <p class="text-2xl font-black mt-1 text-slate-900">1,240</p>
+                                            </div>
+                                            <div class="p-4 rounded-2xl bg-teal-50 border border-teal-100">
+                                                <p class="text-xs uppercase tracking-wider text-teal-700">Mock interviews</p>
+                                                <p class="text-2xl font-black mt-1 text-slate-900">3.6k</p>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200">
+                                            <div class="flex items-center space-x-3">
+                                                <span class="text-2xl">🎯</span>
+                                                <div>
+                                                    <p class="font-bold text-slate-900">Next coaching focus</p>
+                                                    <p class="text-sm text-slate-600">Handling objections with confidence</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Product Ecosystem Grid (Desktop & Mobile Optimized) -->
+            <!-- Product Ecosystem Grid -->
             <section id="features" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-3">Our AI Ecosystem</h2>
-                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Powerful Products Built for Professionals</h3>
-                    <p class="text-slate-500 mt-2 text-sm sm:text-base">Everything you need to level up your sales closing skills and interview readiness.</p>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Powerful products built for real career momentum</h3>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base">From sales confidence to interview performance and call coaching, Accent helps professionals sharpen every part of their growth path.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Card 1: Sales Program -->
                     <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition flex flex-col justify-between group">
                         <div>
                             <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">📚</div>
                             <h4 class="text-xl font-bold text-slate-900 mb-2">Accent Sales Program</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed">Comprehensive sales masterclass with actionable lessons, quick checks, secure PIN activation, quizzes, and certificates.</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">Structured sales masterclasses, quick learning checks, and guided practice to improve conversion and communication.</p>
                         </div>
                         <button onclick="openAuthModal()" class="mt-8 text-emerald-600 font-semibold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition">
                             <span>Explore Course</span> <span>→</span>
                         </button>
                     </div>
 
-                    <!-- Card 2: Ila Careers -->
                     <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition flex flex-col justify-between group">
                         <div>
                             <div class="w-14 h-14 bg-teal-100 text-teal-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🎤</div>
                             <h4 class="text-xl font-bold text-slate-900 mb-2">Ila — Accent Careers</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed">AI mock interview simulator supporting English and Malayalam (മലയാളം) voice inputs with instant performance analytics.</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">AI mock interview coaching with bilingual support, voice practice, and instant performance feedback.</p>
                         </div>
                         <button onclick="openAuthModal()" class="mt-8 text-teal-600 font-semibold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition">
                             <span>Start Interview</span> <span>→</span>
                         </button>
                     </div>
 
-                    <!-- Card 3: Kili Calls -->
                     <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition flex flex-col justify-between group">
                         <div>
                             <div class="w-14 h-14 bg-sky-100 text-sky-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🐦</div>
                             <h4 class="text-xl font-bold text-slate-900 mb-2">Kili — Accent Calls</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed">Upload your sales call recordings (MP3 or voice notes) for deep AI breakdown, transcription, and conversion feedback.</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">Upload call recordings for AI transcription, breakdown, and real-time recommendations to close stronger.</p>
                         </div>
                         <button onclick="openAuthModal()" class="mt-8 text-sky-600 font-semibold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition">
                             <span>Upload Call</span> <span>→</span>
                         </button>
                     </div>
 
-                    <!-- Card 4: Mentor & Resume -->
                     <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl transition flex flex-col justify-between group">
                         <div>
                             <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🌱</div>
                             <h4 class="text-xl font-bold text-slate-900 mb-2">Sales Mentor & Resume</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed">Chat with your personal AI sales coach and run instant resume optimization reviews to stand out to recruiters.</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">Private AI coaching for sales strategies, messaging, and resume refinement aligned with recruiter expectations.</p>
                         </div>
                         <button onclick="openAuthModal()" class="mt-8 text-amber-600 font-semibold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition">
                             <span>Ask Mentor</span> <span>→</span>
@@ -132,9 +188,146 @@
                     </div>
                 </div>
             </section>
+
+            <!-- About/Why choose us -->
+            <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-[0.24em] text-emerald-600">Why Accent</span>
+                        <h3 class="mt-4 text-3xl sm:text-4xl font-extrabold text-slate-900">A smarter way to build confidence, skill, and traction.</h3>
+                        <p class="mt-4 text-slate-600 text-base leading-relaxed">Accent blends AI, practical sales routines, and career coaching so learners can move from uncertainty to performance with clear feedback at each step.</p>
+
+                        <div class="mt-8 space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg">✓</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Actionable training, not generic advice</h4>
+                                    <p class="text-sm text-slate-600 mt-1">Learn through role-play, guided coaching, and real-world call scenarios.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-lg">✓</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Career support across every stage</h4>
+                                    <p class="text-sm text-slate-600 mt-1">From interview prep to sales pitch improvement and resume optimization, you get support that matches your goals.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg">✓</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Built for growth professionals</h4>
+                                    <p class="text-sm text-slate-600 mt-1">Whether you are entering sales, switching careers, or trying to sharpen your performance, Accent helps you keep improving.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-[2rem] p-6 sm:p-8 text-white shadow-xl">
+                        <p class="text-sm uppercase tracking-[0.2em] text-emerald-300">Growth snapshot</p>
+                        <div class="mt-6 grid grid-cols-2 gap-4">
+                            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                                <p class="text-3xl font-black">2.5x</p>
+                                <p class="text-sm text-slate-300 mt-1">faster skill practice</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                                <p class="text-3xl font-black">87%</p>
+                                <p class="text-sm text-slate-300 mt-1">confidence gain</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                                <p class="text-3xl font-black">40%</p>
+                                <p class="text-sm text-slate-300 mt-1">stronger objection handling</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                                <p class="text-3xl font-black">24/7</p>
+                                <p class="text-sm text-slate-300 mt-1">AI support access</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-400/20">
+                            <p class="text-sm text-emerald-100">“The platform helped me structure my sales conversations and feel far more confident in interviews.”</p>
+                            <p class="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">— Early learner</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How it works -->
+            <section class="bg-slate-900 mt-20 py-20 text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto">
+                        <h3 class="text-3xl sm:text-4xl font-extrabold">How Accent works</h3>
+                        <p class="mt-3 text-slate-300">Simple steps to improve your communication and momentum.</p>
+                    </div>
+                    <div class="mt-12 grid md:grid-cols-3 gap-6">
+                        <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-2xl">1</div>
+                            <h4 class="mt-5 text-xl font-bold">Choose your focus</h4>
+                            <p class="mt-2 text-sm text-slate-300">Pick sales readiness, interview prep, call analysis, or resume support based on your current goal.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-2xl">2</div>
+                            <h4 class="mt-5 text-xl font-bold">Practice with AI feedback</h4>
+                            <p class="mt-2 text-sm text-slate-300">Get structured feedback on pitch quality, language clarity, confidence, and communication patterns.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-2xl">3</div>
+                            <h4 class="mt-5 text-xl font-bold">Track progress</h4>
+                            <p class="mt-2 text-sm text-slate-300">Review performance trends, unlock new learning paths, and keep building the confidence to win.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Success stories -->
+            <section id="stories" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Results people notice</h3>
+                    <p class="mt-3 text-slate-500">From first interview nerves to stronger sales conversations, Accent helps learners turn practice into real confidence.</p>
+                </div>
+                <div class="mt-12 grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
+                        <div class="text-emerald-500 text-3xl">“</div>
+                        <p class="text-slate-600 leading-relaxed">I used the interview tool before my placement round and it completely changed the way I structured my answers.</p>
+                        <div class="mt-5 pt-4 border-t border-slate-200">
+                            <p class="font-bold text-slate-900">Ananya</p>
+                            <p class="text-xs uppercase tracking-wider text-slate-500">Career switcher</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
+                        <div class="text-emerald-500 text-3xl">“</div>
+                        <p class="text-slate-600 leading-relaxed">The call review feature helped me catch weak transitions and objection handling moments I never noticed before.</p>
+                        <div class="mt-5 pt-4 border-t border-slate-200">
+                            <p class="font-bold text-slate-900">Rahul</p>
+                            <p class="text-xs uppercase tracking-wider text-slate-500">Sales executive</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
+                        <div class="text-emerald-500 text-3xl">“</div>
+                        <p class="text-slate-600 leading-relaxed">The resume and mentoring support made me more focused, more polished, and far more confident in job conversations.</p>
+                        <div class="mt-5 pt-4 border-t border-slate-200">
+                            <p class="font-bold text-slate-900">Nisha</p>
+                            <p class="text-xs uppercase tracking-wider text-slate-500">Job seeker</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
+                <div class="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-[2rem] p-8 sm:p-12 text-white shadow-xl">
+                    <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-[0.22em] text-emerald-100">Ready to begin?</p>
+                            <h3 class="mt-3 text-3xl sm:text-4xl font-extrabold">Build a sharper career and stronger sales presence.</h3>
+                        </div>
+                        <button onclick="openAuthModal()" class="bg-white text-emerald-700 font-bold px-8 py-4 rounded-2xl shadow-lg hover:bg-emerald-50 transition">
+                            Join Accent Today
+                        </button>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- VIEW 2: PORTAL / APP DASHBOARD (Unlocked after login) -->
+        <!-- VIEW 2: PORTAL / APP DASHBOARD -->
         <div id="view-dashboard" class="hidden max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
             <div class="bg-gradient-to-r from-emerald-800 to-teal-900 text-white rounded-3xl p-8 shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
@@ -149,7 +342,6 @@
 
             <!-- Dashboard Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Course Card -->
                 <div onclick="loadModule('sales')" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:border-emerald-500 cursor-pointer transition flex items-center justify-between">
                     <div class="flex items-center space-x-4">
                         <div class="bg-emerald-100 text-emerald-700 p-4 rounded-2xl text-2xl">📚</div>
@@ -161,7 +353,6 @@
                     <span class="text-slate-400 text-xl font-bold">→</span>
                 </div>
 
-                <!-- Ila Interview Card -->
                 <div onclick="loadModule('ila')" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:border-teal-500 cursor-pointer transition flex items-center justify-between">
                     <div class="flex items-center space-x-4">
                         <div class="bg-teal-100 text-teal-700 p-4 rounded-2xl text-2xl">🎤</div>
@@ -173,7 +364,6 @@
                     <span class="text-slate-400 text-xl font-bold">→</span>
                 </div>
 
-                <!-- Kili Calls Card -->
                 <div onclick="loadModule('kili')" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:border-sky-500 cursor-pointer transition flex items-center justify-between">
                     <div class="flex items-center space-x-4">
                         <div class="bg-sky-100 text-sky-700 p-4 rounded-2xl text-2xl">🐦</div>
@@ -185,7 +375,6 @@
                     <span class="text-slate-400 text-xl font-bold">→</span>
                 </div>
 
-                <!-- Mentor Card -->
                 <div onclick="loadModule('mentor')" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:border-amber-500 cursor-pointer transition flex items-center justify-between">
                     <div class="flex items-center space-x-4">
                         <div class="bg-amber-100 text-amber-700 p-4 rounded-2xl text-2xl">🌱</div>
@@ -223,11 +412,11 @@
             <form onsubmit="handleAuthSubmit(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Full Name</label>
-                    <input type="text" id="input-name" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm" placeholder="e.g., Alex Menon">
+                    <input type="text" id="input-name" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm" placeholder="Your name">
                 </div>
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">WhatsApp Number</label>
-                    <input type="tel" id="input-whatsapp" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm" placeholder="e.g., +91 99958 42727">
+                    <input type="tel" id="input-whatsapp" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm" placeholder="+91 98765 43210">
                 </div>
                 <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-md transition text-sm">
                     Continue to Dashboard 🚀
@@ -348,7 +537,7 @@
                             </select>
                         </div>
                         <div class="text-center p-8 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
-                            <button onclick="alert('Simulated Voice Recording: Tap 🎤 to speak, ■ to send.')" class="bg-emerald-600 hover:bg-emerald-700 text-white w-16 h-16 rounded-full text-2xl shadow-lg inline-flex items-center justify-center transition hover:scale-105">🎤</button>
+                            <button onclick="alert('Simulated Voice Recording: Tap 🎤 to speak, ■ to send.')" class="bg-emerald-600 hover:bg-emerald-700 text-white w-16 h-16 rounded-full text-2xl shadow-md transition">🎤</button>
                             <p class="text-xs font-semibold text-slate-600 mt-3">Tap to Speak Your Answer</p>
                         </div>
                     </div>
@@ -358,7 +547,7 @@
                     <h2 class="text-2xl font-black text-slate-900 mb-2">🐦 Kili — Sales Call Review</h2>
                     <p class="text-slate-500 text-sm mb-6">Upload a sales call recording (MP3 or voice note) for AI diagnostics.</p>
                     <div class="space-y-4">
-                        <input type="file" accept="audio/*" class="w-full text-sm text-slate-500 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 cursor-pointer border border-slate-200 rounded-xl p-2">
+                        <input type="file" accept="audio/*" class="w-full text-sm text-slate-500 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-100 file:text-emerald-700 file:cursor-pointer">
                         <button onclick="alert('Call audio uploaded! Analyzing conversation structure...')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm transition">
                             Upload & Analyze Call Recording 🔍
                         </button>
@@ -369,7 +558,7 @@
                     <h2 class="text-2xl font-black text-slate-900 mb-2">🌱 Sales Mentor & Resume Analyzer</h2>
                     <p class="text-slate-500 text-sm mb-6">Ask your mentor questions or upload your resume.</p>
                     <div class="space-y-4">
-                        <textarea rows="4" class="w-full p-4 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Ask anything about sales strategy, objection handling, or career growth..."></textarea>
+                        <textarea rows="4" class="w-full p-4 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Ask anything about sales, interviews, or improving your resume..."></textarea>
                         <button onclick="alert('Mentor query sent successfully!')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm transition">
                             Send to AI Mentor 💡
                         </button>
@@ -382,9 +571,9 @@
         function requestPinAccess() {
             const ref = prompt("Enter payment reference code (Type TEST):");
             if (ref && ref.trim().toUpperCase() === "TEST") {
-                document.getElementById('course-status-box').className = "p-4 bg-emerald-50 border border-emerald-200 rounded-2xl flex justify-between items-center text-sm font-bold text-emerald-900";
-                document.getElementById('course-status-box').innerHTML = "<span>Lessons 3–10 + Final Quiz & Certificate</span><span class='bg-emerald-600 text-white text-xs px-3 py-1 rounded-full'>Unlocked ✨</span>";
-                document.getElementById('pin-action-area').innerHTML = "<div class='p-4 bg-emerald-100 text-emerald-800 rounded-xl text-center text-xs font-bold'>🎉 Access Granted! All course modules and certificate unlocked.</div>";
+                document.getElementById('course-status-box').className = "p-4 bg-emerald-50 border border-emerald-200 rounded-2xl flex justify-between items-center text-sm font-bold text-emerald-800";
+                document.getElementById('course-status-box').innerHTML = "<span>Lessons 3–10 + Final Quiz & Certificate</span><span class='bg-emerald-600 text-white text-xs px-3 py-1 rounded-full font-bold'>Unlocked</span>";
+                document.getElementById('pin-action-area').innerHTML = "<div class='p-4 bg-emerald-100 text-emerald-800 rounded-xl text-center text-xs font-bold'>🎉 Access Granted! All course modules are now unlocked.</div>";
                 alert("PIN verified successfully!");
             } else {
                 alert("Invalid reference code. Please type TEST.");
