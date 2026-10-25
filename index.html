@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accent — Choice Is Yours</title>
+    <!-- Tailwind CSS for clean styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        :root {
+            --accent-primary: #10B981;
+            --accent-dark: #064E3B;
+            --bg-main: #F9FAFB;
+        }
+        body { background-color: var(--bg-main); font-family: system-ui, -apple-system, sans-serif; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="bg-emerald-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-md mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTab('home')">
+                <span class="text-xl">🌱</span>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight tracking-wide">Accent</h1>
+                    <p class="text-xs text-emerald-300 font-medium">Choice Is Yours</p>
+                </div>
+            </div>
+            <div id="user-badge" class="hidden text-xs bg-emerald-800 px-3 py-1 rounded-full border border-emerald-700 flex items-center space-x-2">
+                <span id="badge-name" class="font-semibold text-emerald-200"></span>
+                <button onclick="handleSignOut()" class="text-emerald-400 hover:text-white underline">Sign Out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-1 max-w-md w-full mx-auto p-4 pb-20">
+
+        <!-- AUTH SCREEN (Shown if not signed in) -->
+        <section id="screen-auth" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 my-4">
+            <div class="text-center mb-6">
+                <span class="text-4xl">🌱</span>
+                <h2 class="text-xl font-bold text-gray-900 mt-2">Welcome to Accent Beta</h2>
+                <p class="text-sm text-gray-500 mt-1">Sign up once to access your courses, AI mock interviews, and call reviews.</p>
+            </div>
+            <form onsubmit="handleSignIn(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Your Full Name</label>
+                    <input type="text" id="auth-name" required class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm" placeholder="e.g., Alex Johnson">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">WhatsApp Number</label>
+                    <input type="tel" id="auth-whatsapp" required class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm" placeholder="e.g., +91 99958 42727">
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl shadow-md transition duration-200 text-sm">
+                    Start Testing 🚀
+                </button>
+            </form>
+            <div class="mt-4 text-center">
+                <p class="text-xs text-gray-400">Tip: Tap <span class="font-semibold text-gray-600">Share → Add to Home Screen</span> to use it like an app!</p>
+            </div>
+        </section>
+
+        <!-- DASHBOARD (HOME SCREEN) -->
+        <section id="screen-home" class="hidden space-y-4">
+            <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-2xl p-5 shadow-sm">
+                <h2 class="text-lg font-bold">Hello, <span id="welcome-name"></span>! 👋</h2>
+                <p class="text-xs text-emerald-100 mt-1">Select a module below to begin testing your AI tools and sales program.</p>
+            </div>
+
+            <!-- Product Card 1: Sales Masterclass -->
+            <div onclick="switchTab('sales-course')" class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-emerald-500 transition">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-emerald-100 text-emerald-700 p-3 rounded-xl text-xl">📚</div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-sm">Accent Sales Program</h3>
+                        <p class="text-xs text-gray-500">Lessons, Quick Checks & Certificate</p>
+                    </div>
+                </div>
+                <span class="text-gray-400 font-bold">→</span>
+            </div>
+
+            <!-- Product Card 2: Ila Careers -->
+            <div onclick="switchTab('ila-interview')" class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-emerald-500 transition">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-teal-100 text-teal-700 p-3 rounded-xl text-xl">🎤</div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-sm">Ila — Accent Careers</h3>
+                        <p class="text-xs text-gray-500">AI Mock Interviews (English / Malayalam)</p>
+                    </div>
+                </div>
+                <span class="text-gray-400 font-bold">→</span>
+            </div>
+
+            <!-- Product Card 3: Kili Calls -->
+            <div onclick="switchTab('kili-calls')" class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-emerald-500 transition">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-sky-100 text-sky-700 p-3 rounded-xl text-xl">🐦</div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-sm">Kili — Accent Calls</h3>
+                        <p class="text-xs text-gray-500">Sales Call Recording Review (MP3)</p>
+                    </div>
+                </div>
+                <span class="text-gray-400 font-bold">→</span>
+            </div>
+
+            <!-- Product Card 4: Mentor & Resume -->
+            <div onclick="switchTab('mentor-resume')" class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:border-emerald-500 transition">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-amber-100 text-amber-700 p-3 rounded-xl text-xl">🌱</div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-sm">Sales Mentor & Resume</h3>
+                        <p class="text-xs text-gray-500">AI Chat Coach & Resume Analyzer</p>
+                    </div>
+                </div>
+                <span class="text-gray-400 font-bold">→</span>
+            </div>
+        </section>
+
+        <!-- MODULE 1: SALES COURSE -->
+        <section id="screen-sales-course" class="hidden space-y-4">
+            <button onclick="switchTab('home')" class="text-xs text-emerald-600 font-semibold mb-2 flex items-center">← Back to Dashboard</button>
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 space-y-4">
+                <h2 class="text-lg font-bold text-gray-900">📚 Sales Basics Masterclass</h2>
+                <div class="space-y-2 text-sm">
+                    <div class="p-3 bg-gray-50 rounded-xl flex justify-between items-center">
+                        <span>Lesson 1: Introduction to Sales</span>
+                        <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded font-semibold">Free</span>
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded-xl flex justify-between items-center">
+                        <span>Lesson 2: Objection Handling</span>
+                        <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded font-semibold">Free</span>
+                    </div>
+                    <div id="locked-lessons" class="p-3 bg-gray-100 rounded-xl flex justify-between items-center text-gray-400">
+                        <span>Lessons 3–10 + Final Quiz & Certificate</span>
+                        <span class="text-xs bg-gray-200 px-2 py-1 rounded font-semibold">Locked 🔒</span>
+                    </div>
+                </div>
+
+                <div id="access-request-box" class="pt-2 border-t border-gray-100">
+                    <p class="text-xs text-gray-600 mb-2">Want full access? Tap below and type reference code <strong class="text-emerald-700">TEST</strong>.</p>
+                    <button onclick="requestFullAccess()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-semibold text-xs">
+                        I Have Paid · Request Full Access
+                    </button>
+                </div>
+
+                <div id="unlocked-badge" class="hidden p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-center text-xs font-semibold">
+                    🎉 Full Access Granted! All lessons & certificate unlocked.
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 2: ILA INTERVIEWS -->
+        <section id="screen-ila-interview" class="hidden space-y-4">
+            <button onclick="switchTab('home')" class="text-xs text-emerald-600 font-semibold mb-2">← Back to Dashboard</button>
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 space-y-4">
+                <h2 class="text-lg font-bold text-gray-900">🎤 Ila — AI Mock Interview</h2>
+                <p class="text-xs text-gray-500">Pick a role and answer by voice. Supports English & Malayalam.</p>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Select Role</label>
+                    <select class="w-full px-3 py-2 rounded-xl border border-gray-300 text-sm">
+                        <option>Sales Executive (English)</option>
+                        <option>Customer Support (Malayalam · മലയാളം)</option>
+                        <option>Business Development Manager</option>
+                    </select>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+                    <button onclick="alert('Simulated Voice Recording: Tap 🎤 to speak, ■ to send.')" class="bg-emerald-600 hover:bg-emerald-700 text-white w-14 h-14 rounded-full text-xl shadow-md inline-flex items-center justify-center">🎤</button>
+                    <p class="text-xs text-gray-500 mt-2">Tap to Record Voice Answer</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 3: KILI CALLS -->
+        <section id="screen-kili-calls" class="hidden space-y-4">
+            <button onclick="switchTab('home')" class="text-xs text-emerald-600 font-semibold mb-2">← Back to Dashboard</button>
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 space-y-4">
+                <h2 class="text-lg font-bold text-gray-900">🐦 Kili — Sales Call Review</h2>
+                <p class="text-xs text-gray-500">Upload a sales call recording (MP3 or voice note) for instant AI feedback.</p>
+                <input type="file" accept="audio/*" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                <button onclick="alert('Audio uploaded successfully! Processing call breakdown...')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-semibold text-xs">
+                    Analyze Call Recording 🔍
+                </button>
+            </div>
+        </section>
+
+        <!-- MODULE 4: MENTOR & RESUME -->
+        <section id="screen-mentor-resume" class="hidden space-y-4">
+            <button onclick="switchTab('home')" class="text-xs text-emerald-600 font-semibold mb-2">← Back to Dashboard</button>
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 space-y-4">
+                <h2 class="text-lg font-bold text-gray-900">🌱 Sales Mentor & Resume Analyzer</h2>
+                <p class="text-xs text-gray-500">Ask questions or upload your resume for review.</p>
+                <textarea rows="3" class="w-full px-3 py-2 rounded-xl border border-gray-300 text-sm" placeholder="Ask your sales mentor anything..."></textarea>
+                <button onclick="alert('Mentor query sent!')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-semibold text-xs">
+                    Ask Mentor 💡
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-4 text-xs text-gray-400">
+        Accent · Choice Is Yours 💚
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function checkAuth() {
+            const user = localStorage.getItem('accent_user');
+            if (user) {
+                const data = JSON.parse(user);
+                document.getElementById('screen-auth').classList.add('hidden');
+                document.getElementById('screen-home').classList.remove('hidden');
+                document.getElementById('user-badge').classList.remove('hidden');
+                document.getElementById('badge-name').innerText = data.name;
+                document.getElementById('welcome-name').innerText = data.name;
+                
+                if(data.unlocked) {
+                    unlockCourseUI();
+                }
+            } else {
+                document.getElementById('screen-auth').classList.remove('hidden');
+                document.getElementById('screen-home').classList.add('hidden');
+                document.getElementById('user-badge').classList.add('hidden');
+            }
+        }
+
+        function handleSignIn(e) {
+            e.preventDefault();
+            const name = document.getElementById('auth-name').value;
+            const whatsapp = document.getElementById('auth-whatsapp').value;
+            localStorage.setItem('accent_user', JSON.stringify({ name, whatsapp, unlocked: false }));
+            checkAuth();
+            switchTab('home');
+        }
+
+        function handleSignOut() {
+            localStorage.removeItem('accent_user');
+            checkAuth();
+        }
+
+        function switchTab(tabId) {
+            ['screen-home', 'screen-sales-course', 'screen-ila-interview', 'screen-kili-calls', 'screen-mentor-resume'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById('screen-' + tabId).classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function requestFullAccess() {
+            const ref = prompt("Enter payment reference code (Type TEST):");
+            if (ref && ref.trim().toUpperCase() === "TEST") {
+                let user = JSON.parse(localStorage.getItem('accent_user'));
+                user.unlocked = true;
+                localStorage.setItem('accent_user', JSON.stringify(user));
+                unlockCourseUI();
+                alert("Payment verified successfully! All lessons unlocked.");
+            } else {
+                alert("Invalid reference code. Please type TEST.");
+            }
+        }
+
+        function unlockCourseUI() {
+            document.getElementById('locked-lessons').className = "p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-xl flex justify-between items-center font-semibold text-sm";
+            document.getElementById('locked-lessons').innerHTML = "<span>Lessons 3–10 + Final Quiz & Certificate</span><span class='text-xs bg-emerald-600 text-white px-2 py-1 rounded'>Unlocked ✨</span>";
+            document.getElementById('access-request-box').classList.add('hidden');
+            document.getElementById('unlocked-badge').classList.remove('hidden');
+        }
+
+        // Initialize on load
+        window.onload = checkAuth;
+    </script>
+</body>
+</html>
